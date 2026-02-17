@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体験カウンセリング | 心のクセをやさしくほどく</title>
+    <!-- Google Fonts: 読みやすさと優しさを兼ね備えたフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#88B04B',   /* 優しいセージグリーン */
+                        'primary-dark': '#6A8E38',
+                        'secondary': '#FDFBF7', /* 暖かみのあるオフホワイト */
+                        'accent': '#E08E79',    /* 落ち着いたコーラルピンク */
+                        'text-main': '#4A4A4A', /* 濃いグレー（黒より柔らかい） */
+                        'text-light': '#747474',
+                    },
+                    fontFamily: {
+                        'sans': ['"Noto Sans JP"', 'sans-serif'],
+                        'maru': ['"Zen Maru Gothic"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #4A4A4A;
+            background-color: #FDFBF7;
+            line-height: 1.8;
+        }
+        h1, h2, h3, .rounded-text {
+            font-family: 'Zen Maru Gothic', sans-serif;
+        }
+        /* ふわっと表示されるアニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ヒーローセクションの背景 */
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* アコーディオンのスタイル */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px; /* 十分な高さ */
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-icon.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-maru font-bold text-primary-dark">AZU Counseling</div>
+            <a href="#menu" class="bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-primary-dark transition shadow-md">
+                体験カウンセリング
+            </a>
+        </div>
+    </header>
+
+    <!-- 1) ファーストビュー -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-16 pb-12 relative">
+        <div class="container mx-auto px-4 text-center max-w-3xl fade-in">
+            <p class="text-text-main mb-4 font-medium tracking-widest text-sm md:text-base">がんばってるのに、心がずっとザワザワする。</p>
+            
+            <div class="inline-block bg-white/80 px-6 py-2 rounded-full mb-6 shadow-sm">
+                <p class="text-primary-dark font-bold">しっかり者に見られるあなたへ。</p>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8 text-text-main">
+                「心のクセ」をやさしくほどいて、<br class="hidden md:block">
+                ラクに生きるための<br>
+                <span class="text-primary-dark">体験カウンセリング</span>
+            </h1>
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 text-left inline-block max-w-lg mx-auto border border-gray-100">
+                <ul class="space-y-3 text-text-light">
+                    <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>いつも気を張っていて、休めない</li>
+                    <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>頼れない／弱音が言えない</li>
+                    <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>イライラして自己嫌悪…を繰り返す</li>
+                    <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>“私が悪い”で終わらせてしまう</li>
+                    <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>頑張ってるのに満たされない</li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <p class="mb-6 font-medium text-lg">あなたを苦しめる「思考のクセ・我慢のパターン」を整理し、<br class="hidden md:block">“責めなくても整う方向”を一緒に見つけます。</p>
+                <a href="#menu" class="inline-block bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-4 px-10 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl">
+                    体験カウンセリングを申し込む
+                    <i class="fas fa-chevron-right ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2) 共感 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-primary-dark mb-12 fade-in">
+                <i class="far fa-heart mr-2"></i>こんな状態、ありませんか？
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in">
+                <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+                    <p class="font-bold text-lg mb-2">家族のために動いてるのに</p>
+                    <p class="text-text-light">自分の心だけ置き去りにされているような気がする。</p>
+                </div>
+                <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+                    <p class="font-bold text-lg mb-2">言えない不満が爆発しそう</p>
+                    <p class="text-text-light">夫や周りに不満があるのに、飲み込んでしまう。</p>
+                </div>
+                <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+                    <p class="font-bold text-lg mb-2">「このくらいで」と止める</p>
+                    <p class="text-text-light">相談したいけれど、「私が弱いだけだ」と思ってしまう。</p>
+                </div>
+                <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+                    <p class="font-bold text-lg mb-2">“ちゃんとしなきゃ”が限界</p>
+                    <p class="text-text-light">気がつくと心も体もギリギリの状態になっている。</p>
+                </div>
+            </div>
+
+            <div class="bg-primary/10 p-8 rounded-3xl text-center fade-in">
+                <p class="text-lg md:text-xl leading-relaxed">
+                    それは、あなたが弱いからじゃなくて、<br>
+                    これまで生きるために身につけた<br>
+                    <strong class="text-primary-dark text-2xl marker-line">「心のクセ」</strong>が働いているだけかもしれません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) ベネフィット -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12 fade-in">
+                <span class="text-accent font-bold tracking-widest text-sm">BENEFIT</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-text-main mt-2">
+                    体験カウンセリングで得られること
+                </h2>
+                <p class="mt-4 text-text-light">まずは「絡まっている糸」をほどくことから始めます。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 fade-in">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">モヤモヤの言語化</h3>
+                    <p class="text-sm text-text-light">正体のわからない感情・思考・本音を言葉にすることで、混乱が落ち着きます。</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">引き金が分かる</h3>
+                    <p class="text-sm text-text-light">なぜかいつも自己否定してしまう「パターン」や「引き金」に気づけます。</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">「どうしたい？」へ</h3>
+                    <p class="text-sm text-text-light">他人軸ではなく「私はどうしたい？」に戻れる感覚を取り戻します。</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center md:col-span-1.5 md:col-start-1 md:ml-auto">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">明日からの具体策</h3>
+                    <p class="text-sm text-text-light">具体的に、明日からの関わり方や、自分の整え方が分かります。</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center md:col-span-1.5 md:mr-auto">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">新しい選択肢</h3>
+                    <p class="text-sm text-text-light">ただ我慢するだけではない、自分を守るための「我慢以外の選択肢」が見えてきます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) この体験が向いている人 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-primary-dark mb-10 fade-in">
+                こんな方に受けていただきたい体験です
+            </h2>
+            
+            <div class="bg-secondary border-2 border-dashed border-primary/30 rounded-3xl p-8 mb-8 fade-in">
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>ちゃんとしてるのに、心がずっと苦しい</li>
+                    <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>人に頼れず、何でも一人で抱えがち</li>
+                    <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>感情を出すのが怖い／出し方が分からない</li>
+                    <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>優しいのに、イライラが止まらず自己嫌悪になる</li>
+                    <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>「このままじゃ嫌だ」と思っている</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-xl text-sm text-gray-600 fade-in">
+                <p class="font-bold mb-2">※ご確認をお願いします</p>
+                <p>反対に、今すぐ診断や治療が必要な可能性が高い状態（強い希死念慮、重度の不眠が継続、日常生活が著しく困難等）の場合は、カウンセリングよりも医療や専門機関の利用を優先してご案内させていただく場合がございます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) 体験でやること -->
+    <section class="py-20 bg-primary/5">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">
+                体験カウンセリングの内容
+            </h2>
+
+            <div class="space-y-8 fade-in">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">01</div>
+                    <div class="p-6 md:p-8 flex-1">
+                        <h3 class="text-xl font-bold text-primary-dark mb-2">今のしんどさを整理</h3>
+                        <p class="text-text-light">「何が起きて」「どう感じて」「本当はどうしたい？」を丁寧に分けていきます。頭の中の糸を一本一本ほどく作業です。</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">02</div>
+                    <div class="p-6 md:p-8 flex-1">
+                        <h3 class="text-xl font-bold text-primary-dark mb-2">心のクセ（パターン）を可視化</h3>
+                        <p class="text-text-light">「いつも同じところで苦しくなる」ポイントを見つけます。自分が悪いのではなく、クセが発動していることに気づきます。</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">03</div>
+                    <div class="p-6 md:p-8 flex-1">
+                        <h3 class="text-xl font-bold text-primary-dark mb-2">自分を責めない整え方を一緒に決める</h3>
+                        <p class="text-text-light">無理な正論や根性論ではなく、今のあなたの生活や状況に合う形で、無理なくできる「次の一手」を決めます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) 体験の流れ -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">
+                当日の流れ
+            </h2>
+            <div class="relative border-l-4 border-primary/20 ml-4 md:ml-8 space-y-12 fade-in">
+                <div class="relative pl-8 md:pl-12">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+                    <h3 class="font-bold text-lg">お申し込み</h3>
+                    <p class="text-text-light text-sm">フォームまたはLINEよりお申し込みください。</p>
+                </div>
+                <div class="relative pl-8 md:pl-12">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+                    <h3 class="font-bold text-lg">日程確定・事前ヒアリング</h3>
+                    <p class="text-text-light text-sm">オンラインでの日程を調整し、簡単な事前質問にお答えいただきます。</p>
+                </div>
+                <div class="relative pl-8 md:pl-12">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-4 border-white shadow-md"></div>
+                    <h3 class="font-bold text-lg text-accent">体験セッション当日</h3>
+                    <p class="text-text-light text-sm">Zoomにて行います。リラックスできる環境でご参加ください。</p>
+                </div>
+                <div class="relative pl-8 md:pl-12">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+                    <h3 class="font-bold text-lg">まとめ・ご提案</h3>
+                    <p class="text-text-light text-sm">セッションのまとめと、継続的なサポートが必要な方には今後の方向性をご提案します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7) よくある不安（FAQ） -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">
+                よくあるご質問
+            </h2>
+            
+            <div class="space-y-4 fade-in">
+                <!-- Q1 -->
+                <div class="bg-white rounded-xl shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>うまく話せる自信がありません</span>
+                        <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+                            大丈夫です。うまく話す必要はありません。話がまとまっていなくても、こちらから丁寧に質問して整理していきますので、そのままのお気持ちでお越しください。
+                        </div>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-white rounded-xl shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>泣いたら迷惑ですか？</span>
+                        <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+                            迷惑ではありません。感情が出るのは自然なことデトックス作用があります。安全なペースで進めますので、安心してください。
+                        </div>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="bg-white rounded-xl shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>1回で変わりますか？</span>
+                        <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+                            1回で“全部解決”ではなくても、「何が起きているか」「どこから整えるか」が分かるだけで心はかなり軽くなります。まずは現状を知る一歩としてご活用ください。
+                        </div>
+                    </div>
+                </div>
+                <!-- Q4 -->
+                <div class="bg-white rounded-xl shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>無理に継続を勧められませんか？</span>
+                        <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+                            無理な勧誘はいたしません。継続的なサポートが必要な方にだけ、選択肢の一つとしてご提案します。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8) 体験メニュー（CTA） -->
+    <section id="menu" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white border-4 border-primary/20 rounded-3xl p-8 md:p-12 shadow-xl text-center relative overflow-hidden fade-in">
+                <!-- 背景装飾 -->
+                <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-primary/50 to-primary"></div>
+                
+                <h2 class="text-3xl font-bold text-text-main mb-8">体験カウンセリング</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto mb-10">
+                    <div class="border-b border-gray-200 pb-2">
+                        <span class="block text-sm text-text-light mb-1">形式</span>
+                        <span class="text-lg font-bold"><i class="fas fa-video mr-2 text-primary"></i>オンライン（Zoom）</span>
+                    </div>
+                    <div class="border-b border-gray-200 pb-2">
+                        <span class="block text-sm text-text-light mb-1">時間</span>
+                        <span class="text-lg font-bold"><i class="far fa-clock mr-2 text-primary"></i>60分</span>
+                    </div>
+                    <div class="border-b border-gray-200 pb-2">
+                        <span class="block text-sm text-text-light mb-1">料金</span>
+                        <span class="text-xl font-bold text-accent">5,000円<span class="text-sm font-normal text-text-light">（税込）</span></span>
+                    </div>
+                    <div class="border-b border-gray-200 pb-2">
+                        <span class="block text-sm text-text-light mb-1">特典</span>
+                        <span class="text-sm font-bold">自己充足度診断シート プレゼント</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <button class="w-full md:w-auto bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-5 px-16 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl">
+                        日程を確認して申し込む
+                        <i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                    <p class="text-sm text-text-light mt-4">
+                        <a href="#" class="underline hover:text-primary">LINEで相談してから決める方はこちら</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9) プロフィール -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center gap-10 fade-in">
+                <div class="w-48 h-48 flex-shrink-0 relative">
+                    <!-- 画像プレースホルダー -->
+                    <div class="w-full h-full rounded-full bg-gray-300 overflow-hidden border-4 border-white shadow-md">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AZU" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <p class="text-primary text-sm font-bold tracking-widest mb-2">COUNSELOR PROFILE</p>
+                    <h2 class="text-2xl font-bold mb-4 font-maru">
+                        心のクセをやさしくひもとき、<br>“生きづらさ”から自由になる伴走者
+                    </h2>
+                    <p class="text-xl font-bold mb-4">AZU <span class="text-base font-normal">（森崎梓）</span></p>
+                    <p class="text-text-light leading-relaxed mb-4">
+                        AC傾向・完璧主義・「頼れない」性格で長年苦しんできた経験から、
+                        「自己理解×自己共感」で心を整えるサポートをしています。
+                    </p>
+                    <p class="text-text-light leading-relaxed font-bold">
+                        目指すのは、克服よりも “私は私でいい”と思える内的安全基地を作ること。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10) クロージング -->
+    <section class="py-24 bg-hero-pattern text-center relative overflow-hidden">
+        <!-- 背景色 -->
+        <div class="absolute inset-0 bg-primary/10"></div>
+        
+        <div class="container mx-auto px-4 max-w-2xl relative z-10 fade-in">
+            <p class="text-xl mb-6">あなたは、もう十分がんばってきました。</p>
+            <p class="text-lg mb-10 leading-relaxed">
+                だからこそ、これ以上<br>
+                「自分を責めることで整えよう」としなくていい。
+            </p>
+            
+            <p class="text-2xl font-bold mb-12 font-maru">
+                体験カウンセリングは、<br>
+                <span class="text-primary-dark">あなたの心がラクになるための“地図づくり”</span>です。
+            </p>
+
+            <a href="#menu" class="inline-block bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-5 px-12 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl w-full md:w-auto">
+                体験カウンセリングを申し込む
+            </a>
+            <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-primary-dark font-bold hover:underline">
+                    <i class="fab fa-line text-2xl mr-2 text-[#00B900]"></i> LINEで相談する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 border-t border-gray-100">
+        <div class="container mx-auto px-4 text-center text-text-light text-sm">
+            <p>&copy; 2024 AZU Counseling Room. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // アコーディオンの制御
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.accordion-icon');
+                
+                button.classList.toggle('active');
+                content.classList.toggle('active');
+                icon.classList.toggle('rotate');
+                
+                // 他のアコーディオンを閉じる場合の処理（オプション）
+                /*
+                document.querySelectorAll('.accordion-btn').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.classList.remove('active');
+                        otherButton.nextElementSibling.classList.remove('active');
+                        otherButton.querySelector('.accordion-icon').classList.remove('rotate');
+                    }
+                });
+                */
+            });
+        });
+
+        // スクロール時のフェードインアニメーション
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を解除
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // スムーズスクロール（念のためJSでも補完）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
