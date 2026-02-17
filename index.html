@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>体験カウンセリング | 心のクセをほどき、行動パターンを書き換える</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome (Icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#88B04B",
+            "primary-dark": "#6A8E38",
+            secondary: "#FDFBF7",
+            accent: "#E08E79",
+            "text-main": "#4A4A4A",
+            "text-light": "#747474",
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', "sans-serif"],
+            maru: ['"Zen Maru Gothic"', "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="antialiased">
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-maru font-bold text-primary-dark">AZU Counseling</div>
+      <a
+        href="#menu"
+        class="bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-primary-dark transition shadow-md"
+      >
+        体験カウンセリングを予約する
+      </a>
+    </div>
+  </header>
+
+  <!-- 1) ファーストビュー -->
+  <section class="hero-bg min-h-screen flex items-center justify-center pt-16 pb-12 relative">
+    <div class="container mx-auto px-4 text-center max-w-3xl fade-in">
+      <p class="text-text-main mb-4 font-medium tracking-widest text-sm md:text-base">
+        家では余裕がなくてイライラ。寝る前に自己嫌悪。
+      </p>
+
+      <div class="inline-block bg-white/80 px-6 py-2 rounded-full mb-6 shadow-sm">
+        <p class="text-primary-dark font-bold">“性格の問題”じゃなく、反応パターンが固定されているだけかもしれません。</p>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8 text-text-main">
+        「心のクセ」をほどいて、<br class="hidden md:block" />
+        <span class="text-primary-dark">我慢と自己否定のループ</span>から抜けるための<br />
+        <span class="text-primary-dark">体験カウンセリング</span>
+      </h1>
+
+      <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 text-left inline-block max-w-lg mx-auto border border-gray-100">
+        <ul class="space-y-3 text-text-light">
+          <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>夫に言いたいことがあるのに、結局飲み込む（あとで爆発する）</li>
+          <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>子どもに強く言ってしまい、あとで一人反省会が止まらない</li>
+          <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>「頼る＝迷惑」が抜けず、ワンオペで抱える</li>
+          <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>自分の時間を取ると罪悪感が出て、休めない</li>
+          <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>相談しても「私が弱いだけ」と結論づけて終わる</li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <p class="mb-6 font-medium text-lg">
+          体験では、“励ます”より先に、<br class="hidden md:block" />
+          <span class="text-primary-dark font-bold">何が引き金で、何を守るためにその反応が出るのか</span>を特定します。<br />
+          そのうえで、<span class="text-primary-dark font-bold">家庭と育児の現場で実行できる5%行動</span>まで設計します。
+        </p>
+
+        <a
+          href="#menu"
+          class="inline-block bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-4 px-10 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl"
+        >
+          体験カウンセリングを予約する
+          <i class="fas fa-chevron-right ml-2 text-sm"></i>
+        </a>
+
+        <p class="mt-4 text-sm text-text-light">
+          ※“優しくしてほしい”より、<span class="font-bold text-primary-dark">自分の反応を変えて現実を変えたい方</span>のための体験です。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) 共感（＋構造の言語化） -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-primary-dark mb-12 fade-in">
+        <i class="far fa-heart mr-2"></i>よく起きる「詰まりポイント」
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12 fade-in">
+        <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+          <p class="font-bold text-lg mb-2">「優しい対応」を優先しすぎる</p>
+          <p class="text-text-light">子どもや夫に合わせ続けて、気づくと自分の許容量がゼロ。</p>
+        </div>
+        <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+          <p class="font-bold text-lg mb-2">頼る前に頭の中で100通りシミュレーション</p>
+          <p class="text-text-light">「こう言ったら面倒」「嫌な空気になる」で、結局言えない。</p>
+        </div>
+        <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+          <p class="font-bold text-lg mb-2">“ちゃんとした母親”でいるほど孤独</p>
+          <p class="text-text-light">弱音を吐けず、頑張りが誰にも見えない感覚が残る。</p>
+        </div>
+        <div class="bg-secondary p-6 rounded-2xl border-l-4 border-primary">
+          <p class="font-bold text-lg mb-2">イライラの後に自己否定が追いかけてくる</p>
+          <p class="text-text-light">反省はするのに、次の場面でまた同じ反応が出る。</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 p-8 rounded-3xl text-center fade-in">
+        <p class="text-lg md:text-xl leading-relaxed">
+          それは“あなたがダメ”ではなく、<br />
+          <span class="font-bold text-primary-dark">家族関係が壊れないように生き抜くために覚えた反応</span>が、<br />
+          いまの生活では“コスト”になっている状態です。<br />
+          体験では、その反応を責めずに、<strong class="text-primary-dark text-2xl marker-line">解除ポイント（切り替えの条件）</strong>を見つけます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) ベネフィット（“安心”ではなく“再現性”） -->
+  <section class="py-20 bg-secondary">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center mb-12 fade-in">
+        <span class="text-accent font-bold tracking-widest text-sm">BENEFIT</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-text-main mt-2">体験で得られること</h2>
+        <p class="mt-4 text-text-light">“気づいて終わり”ではなく、家庭の現場で再現できる形に落とします。</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 fade-in">
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">状況別に言語化できる</h3>
+          <p class="text-sm text-text-light">
+            “夫・子ども・自分”のどこで反応が起きるかを分解し、状況別に言語化します。
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">引き金が見える</h3>
+          <p class="text-sm text-text-light">
+            イライラや自己否定が出る“条件”（時間帯・相手・言葉・疲労など）を特定します。
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+            <i class="fas fa-compass"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">正しさより本音へ戻る</h3>
+          <p class="text-sm text-text-light">
+            “正しい母親”より、あなたの要求（本音）に戻して、意思決定の軸を作ります。
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center md:col-span-1.5 md:col-start-1 md:ml-auto">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+            <i class="fas fa-road"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">5%行動に落とせる</h3>
+          <p class="text-sm text-text-light">
+            家庭の現場でできる“5%の一手”（伝え方・距離・頼り方・境界線）を設計します。
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center md:col-span-1.5 md:mr-auto">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-dark text-2xl">
+            <i class="fas fa-door-open"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">我慢以外の選択肢が増える</h3>
+          <p class="text-sm text-text-light">
+            「言う/言わない」の二択をやめて、関係を壊さず自分を守る選択肢を増やします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) この体験が向いている人（選別を明確化） -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-primary-dark mb-10 fade-in">
+        この体験が向いている方
+      </h2>
+
+      <div class="bg-secondary border-2 border-dashed border-primary/30 rounded-3xl p-8 mb-8 fade-in">
+        <ul class="space-y-4 text-lg">
+          <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>家庭の中で同じ反応（我慢→爆発→自己否定）を終わらせたい</li>
+          <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>「夫に言えない」「頼れない」を“性格”として諦めたくない</li>
+          <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>感情を整理して、言葉と行動に変えられるようになりたい</li>
+          <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>子どもに優しくしたいのに、余裕が削れていく状態を止めたい</li>
+          <li class="flex items-center"><span class="text-primary mr-3 text-xl">●</span>“気づき”だけで終わらず、現実の関わり方を変える覚悟がある</li>
+        </ul>
+      </div>
+
+      <div class="bg-gray-100 p-6 rounded-xl text-sm text-gray-600 fade-in">
+        <p class="font-bold mb-2">※ご確認をお願いします</p>
+        <p>
+          強い希死念慮、重度の不眠が継続、日常生活が著しく困難など、医療的サポートが優先される可能性が高い場合は、
+          カウンセリングではなく医療や専門機関の利用を優先してご案内する場合があります。
+        </p>
+      </div>
+
+      <div class="mt-6 bg-white border border-gray-200 p-6 rounded-xl text-sm text-text-light fade-in">
+        <p class="font-bold text-text-main mb-2">この体験が“合わない”可能性が高い方</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>いまは「話を聞いてもらえれば十分」で、行動は変えたくない</li>
+          <li>家庭・夫婦・子育ての話を“構造で見る”ことに抵抗がある</li>
+          <li>変化のための小さな実験（5%行動）を今は増やしたくない</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5) 体験でやること（セッション構造を反映） -->
+  <section class="py-20 bg-primary/5">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">
+        体験カウンセリングの内容（60分）
+      </h2>
+
+      <div class="space-y-8 fade-in">
+        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">01</div>
+          <div class="p-6 md:p-8 flex-1">
+            <h3 class="text-xl font-bold text-primary-dark mb-2">感情吐き出し → 整理</h3>
+            <p class="text-text-light">
+              出てくる感情を「怒り／悲しみ／不安／罪悪感…」などに分け、頻度・強度・回復時間まで整理します。<br />
+              まず“混乱の正体”を言語化して、扱える状態にします。<br />
+              <span class="text-text-main font-bold">例：</span>子どもの癇癪／夫の一言／義母の口出し／寝かしつけ後の虚無 など
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">02</div>
+          <div class="p-6 md:p-8 flex-1">
+            <h3 class="text-xl font-bold text-primary-dark mb-2">「守るためのクセ」を特定（ABCの骨組み）</h3>
+            <p class="text-text-light">
+              “出来事 → 根本価値観 → 感情 → 行動 → 本音”の流れを整理し、<br />
+              なぜその反応が必要だったのか（何を守っていたのか）を言語化します。<br />
+              <span class="text-text-main font-bold">例：</span>「言うと面倒になる」→我慢→限界→爆発、の回路を図にします
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div class="bg-primary text-white p-4 md:w-24 flex items-center justify-center font-bold text-xl md:text-2xl">03</div>
+          <div class="p-6 md:p-8 flex-1">
+            <h3 class="text-xl font-bold text-primary-dark mb-2">価値観の書き換え仮説 → 5%行動</h3>
+            <p class="text-text-light">
+              「ちゃんとしないと」「迷惑をかけたら終わり」などの根本価値観を“現実に効く形”へ組み替え、<br />
+              次に試す5%行動（小さな一歩）まで一緒に決めます。必要に応じて“禁止令（親密性・成功・成長など）”の当たりも確認します。<br />
+              <span class="text-text-main font-bold">例：</span>「頼る＝迷惑」の前提を組み替え、頼り方を5%で設計します
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-white border border-gray-200 p-6 rounded-2xl text-sm text-text-light fade-in">
+        <p class="font-bold text-text-main mb-2">体験のゴール</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>「何が起きているか」を家庭の現場に落として説明できる</li>
+          <li>我慢と自己否定以外の“整え方”が分かる</li>
+          <li>明日から試す“5%行動”が決まっている</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) 体験の流れ -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">当日の流れ</h2>
+      <div class="relative border-l-4 border-primary/20 ml-4 md:ml-8 space-y-12 fade-in">
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+          <h3 class="font-bold text-lg">お申し込み</h3>
+          <p class="text-text-light text-sm">下のボタンから日程を選び、決済→確定となります（またはLINEで調整）。</p>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+          <h3 class="font-bold text-lg">事前ヒアリング</h3>
+          <p class="text-text-light text-sm">簡単な質問に回答（今の困りごと／状況）→当日はそこを起点に整理します。</p>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-4 border-white shadow-md"></div>
+          <h3 class="font-bold text-lg text-accent">体験セッション当日</h3>
+          <p class="text-text-light text-sm">Zoomで実施。話がまとまっていなくてもOK。こちらが“構造化”をリードします。</p>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-3 top-1 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
+          <h3 class="font-bold text-lg">まとめ・次の一手</h3>
+          <p class="text-text-light text-sm">あなたの詰まりポイントと、5%行動を整理。必要な方には継続の選択肢を“情報として”提示します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7) FAQ（癒し表現を削り、構造で回答＋選別） -->
+  <section class="py-20 bg-secondary">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-text-main mb-12 fade-in">よくあるご質問</h2>
+
+      <div class="space-y-4 fade-in">
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>うまく話せる自信がありません</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              大丈夫です。体験は「話がうまいか」ではなく、出来事・感情・思考・本音を“分けて整理できるか”がポイントです。
+              こちらの質問で、整理の順番を作っていきます。
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>泣いたら迷惑ですか？</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              迷惑ではありません。ただし体験は、感情を出して終わりではなく、
+              出た感情を構造化して「次の行動」に接続します。
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>1回で変わりますか？</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              1回で“人生全部”が変わるというより、まず「どこが詰まりポイントか」「何を変えると連鎖が変わるか」が分かります。
+              その上で、5%行動を試すことで現実の変化が始まります。
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>無理に継続を勧められませんか？</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              無理に勧めることはありません。
+              ただ、体験で“戻るポイント”が明確になった場合は、「一人では維持が難しい理由」も含めて選択肢を提示します。
+              選ぶのはご本人です。
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>どんな人が継続に進むことが多いですか？</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              「気づきはあるのに、家庭の現場で同じ反応に戻る」が強い方です。
+              家庭は再現条件が揃いやすいので、設計→実験→修正の伴走が必要になるケースが多いです。
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm">
+          <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+            <span class="font-bold text-lg text-text-main"><span class="text-primary mr-2">Q.</span>本気で変える覚悟がまだ曖昧でも受けていい？</span>
+            <i class="fas fa-chevron-down text-gray-400 accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-6 text-text-light border-t border-gray-100 pt-4">
+              受けられます。ただし体験は「安心するため」ではなく、「変化の条件を見つける」時間です。
+              “小さく試す（5%行動）”意思が持てるかどうかが、結果の差になります。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8) 体験メニュー（CTA） -->
+  <section id="menu" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="bg-white border-4 border-primary/20 rounded-3xl p-8 md:p-12 shadow-xl text-center relative overflow-hidden fade-in">
+        <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-primary/50 to-primary"></div>
+
+        <h2 class="text-3xl font-bold text-text-main mb-2">体験カウンセリング</h2>
+        <p class="text-text-light mb-8">“気持ちよくなる話”より、<span class="font-bold text-primary-dark">現実が変わるための地図</span>を作ります。</p>
+
+        <div class="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto mb-10">
+          <div class="border-b border-gray-200 pb-2">
+            <span class="block text-sm text-text-light mb-1">形式</span>
+            <span class="text-lg font-bold"><i class="fas fa-video mr-2 text-primary"></i>オンライン（Zoom）</span>
+          </div>
+
+          <div class="border-b border-gray-200 pb-2">
+            <span class="block text-sm text-text-light mb-1">時間</span>
+            <span class="text-lg font-bold"><i class="far fa-clock mr-2 text-primary"></i>60分</span>
+          </div>
+
+          <div class="border-b border-gray-200 pb-2">
+            <span class="block text-sm text-text-light mb-1">料金</span>
+            <span class="text-xl font-bold text-accent">5,000円<span class="text-sm font-normal text-text-light">（税込）</span></span>
+          </div>
+
+          <div class="border-b border-gray-200 pb-2">
+            <span class="block text-sm text-text-light mb-1">特典</span>
+            <span class="text-sm font-bold">自己充足度診断シート（PDF）</span>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- ここは実運用URLに差し替え -->
+          <a
+            href="#"
+            class="inline-block w-full md:w-auto bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-5 px-16 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            日程を確認して予約する
+            <i class="fas fa-chevron-right ml-2"></i>
+          </a>
+
+          <p class="text-sm text-text-light mt-4">
+            <a href="#" class="underline hover:text-primary">LINEで相談してから決めたい方はこちら</a>
+          </p>
+
+          <p class="text-xs text-text-light">
+            ※「今は話を聞いてほしいだけ」の方は、まずLINEで状況を教えてください。適切な案内をします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9) プロフィール -->
+  <section class="py-20 bg-secondary">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="flex flex-col md:flex-row items-center gap-10 fade-in">
+        <div class="w-48 h-48 flex-shrink-0 relative">
+          <div class="w-full h-full rounded-full bg-gray-300 overflow-hidden border-4 border-white shadow-md">
+            <!-- 実際のプロフィール画像URLへ差し替え推奨 -->
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="AZU"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="flex-1 text-center md:text-left">
+          <p class="text-primary text-sm font-bold tracking-widest mb-2">COUNSELOR PROFILE</p>
+          <h2 class="text-2xl font-bold mb-4 font-maru">
+            心のクセを“構造”でほどき、<br />一人では戻ってしまうパターンを書き換える伴走
+          </h2>
+          <p class="text-xl font-bold mb-4">AZU <span class="text-base font-normal">（森崎梓）</span></p>
+          <p class="text-text-light leading-relaxed mb-4">
+            AC傾向・完璧主義・「頼れない」状態を長年経験。<br />
+            だからこそ、気合や根性ではなく、感情と言葉と行動を“再設計”する方法でサポートしています。
+          </p>
+          <p class="text-text-light leading-relaxed font-bold">
+            目指すのは「安心」よりも、現実が変わる“再現性”。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10) クロージング（煽らず、選択を尊重） -->
+  <section class="py-24 bg-hero-pattern text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary/10"></div>
+
+    <div class="container mx-auto px-4 max-w-2xl relative z-10 fade-in">
+      <p class="text-xl mb-6">あなたが悪いから苦しいのではなく、</p>
+      <p class="text-lg mb-10 leading-relaxed">
+        “守るためのクセ”が、今の生活ではコストになっているだけかもしれません。<br />
+        体験は、そのクセを責めずに、機能を見直す時間です。
+      </p>
+
+      <p class="text-2xl font-bold mb-12 font-maru">
+        体験カウンセリングでつくるのは、<br />
+        <span class="text-primary-dark">「自分を責めないための地図」ではなく、</span><br />
+        <span class="text-primary-dark">「変えるための地図」</span>です。
+      </p>
+
+      <a
+        href="#menu"
+        class="inline-block bg-accent hover:bg-[#D07A65] text-white text-xl font-bold py-5 px-12 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl w-full md:w-auto"
+      >
+        体験カウンセリングを予約する
+      </a>
+
+      <div class="mt-6">
+        <a href="#" class="inline-flex items-center text-primary-dark font-bold hover:underline">
+          <i class="fab fa-line text-2xl mr-2 text-[#00B900]"></i> LINEで相談する
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-8 border-t border-gray-100">
+    <div class="container mx-auto px-4 text-center text-text-light text-sm">
+      <p>&copy; 2026 AZU Counseling Room. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // アコーディオン
+    document.querySelectorAll(".accordion-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector(".accordion-icon");
+
+        button.classList.toggle("active");
+        content.classList.toggle("active");
+        icon.classList.toggle("rotate");
+      });
+    });
+
+    // フェードイン
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+    // スムーズスクロール
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>
